@@ -68,7 +68,7 @@ ul li {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: #282828;
+    background: none;
     border-radius: 10px;
     padding: 20px;
     width: 200px;
@@ -79,8 +79,10 @@ ul li {
 ul li img {
     width: 150px;
     height: 250px;
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom:10px;
+    cursor: pointer;
 }
 ul li a {
     color: #f7f7f2;
@@ -132,4 +134,23 @@ ul li:hover {
 }
 .scroll-container ul::-webkit-scrollbar {
     display: none;
+}
+.series-title-thai{
+    font-size: 18px;
+    color: #f7f7f2;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    max-width: 200px; 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis; 
+    white-space: normal; 
+    padding: 0.5px; 
+    margin-bottom: auto;
+    cursor: default;
+
 }
