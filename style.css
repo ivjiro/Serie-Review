@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background: #201f1f;
+    color: #f7f7f2;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+header h1 {
+    font-size: 24px;
+    color: #f7f7f2;
+}
+header nav {
+    display: flex;
+    gap: 20px;
+}
+header nav a {
+    color: #f7f7f2;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+header nav a:hover {
+    color: #ff6347;
+}
+main {
+    margin-top: 80px;
+    padding: 20px;
+}
+section {
+    margin-bottom: 40px;
+}
+section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: hsl(291, 97%, 85%);
+}
+section h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: hsl(291, 97%, 85%);
+}
+ul {
+    padding-left: 0;
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    flex-direction: row;
+}
+ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #282828;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    height: 300px;
+    flex: 0 0 auto;
+    transition: transform 0.3s ease;
+}
+ul li img {
+    width: 150px;
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom:10px;
+}
+ul li a {
+    color: #f7f7f2;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    text-align: center;
+    display: block;
+    width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+ul li:hover {
+    transform: scale(1.05);
+    z-index: 1;
+}
+.scroll-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.scroll-arrow {
+    background: transparent;
+    color: #f7f7f2;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.6px;
+    z-index: 2;
+    box-shadow: none; /* Remove any shadow if present */
+    position: center;
+}
+.scroll-arrow:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+.scroll-container ul {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0 10px;
+    scroll-behavior: smooth;
+    flex: 1;
+}
+.scroll-container ul::-webkit-scrollbar {
+    display: none;
+}
