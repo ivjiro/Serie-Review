@@ -31,7 +31,7 @@ header h1 {
 }
 
 main {
-    margin: 50px;
+    margin: 20px;
     padding: 10px;
     
 }
@@ -235,3 +235,4 @@ ul li:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
