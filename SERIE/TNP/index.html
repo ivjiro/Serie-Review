@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Next Prince - Ivjiro Series Recommendation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: #f7f7f2;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(40, 40, 40, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f7f7f2;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.9)), 
+                        url('TNP_cover.png') center center/cover no-repeat;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 50px;
+            z-index: 10;
+        }
+
+        .hero-text h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-text .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .details-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: fit-content;
+        }
+
+        .details-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #f8ecac;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            min-width: 140px;
+            color: #f8ecac;
+        }
+
+        .detail-value {
+            color: #f7f7f2;
+        }
+
+        .synopsis-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .synopsis-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #f8ecac;
+        }
+
+        .synopsis-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #f8ecac;
+            text-align: center;
+        }
+
+        .cast-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            margin-top: 30px;
+        }
+
+        .cast-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cast-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .cast-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f8ecac;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cast-member:hover img {
+            border-color: #f8ecac;
+            box-shadow: 0 0 20px rgba(249, 227, 103, 0.5);
+        }
+
+        .cast-name {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .review-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .review-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #f8ecac;
+        }
+
+        .review-section h4 {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            color: #f8ecac;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .review-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            text-align: justify;
+            margin: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+
+            .cast-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .hero-section {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 1rem;
+            }
+
+            .cast-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cast-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .details-card, .synopsis-card, .cast-section, .review-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Next Prince (ข้ามฟ้าเคียงเธอ)</h1>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>The Next Prince</h2>
+                <p class="tagline">In a Kingdom Divided, Love Unites and Betrayal Reigns.</p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-grid">
+            <div class="details-card">
+                <h3>Series Details</h3>
+                <div class="detail-item">
+                    <span class="detail-label">Genre:</span>
+                    <span class="detail-value">BL, Romance, Drama, Action</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Country:</span>
+                    <span class="detail-value">Thailand</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Language:</span>
+                    <span class="detail-value">Thai</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Seasons:</span>
+                    <span class="detail-value">1</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Episodes:</span>
+                    <span class="detail-value">14</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Release Date:</span>
+                    <span class="detail-value">May 03, 2025</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Where to Watch:</span>
+                    <span class="detail-value">YouTube: Mandee Channel (EP 1), iQIYI</span>
+                </div>
+            </div>
+
+            <div class="synopsis-card">
+                <h3>Synopsis</h3>
+                <p>The Next Prince follows Khanin, a seemingly ordinary boy in London who discovers he is the crown prince of the kingdom of Emmaly. Reluctant to accept his royal destiny, Khanin is brought back by his loyal royal guard Charan to compete in a Royal Fencing Competition that will determine the next king. As they face political intrigue, assassination attempts, and growing feelings for each other, Khanin must embrace his heritage and uncover the truth behind his adoptive father's death to claim his throne.</p>
+            </div>
+        </div>
+
+        <div class="cast-section">
+            <h3 class="section-title"> Main Cast</h3>
+            <div class="cast-grid">
+                <div class="cast-member">
+                    <img src="charan.jpg" alt="Zee Pruk Panich">
+                    <div class="cast-name">Zee Pruk Panich<br>as Charan Phithakthewa</div>
+                </div>
+                <div class="cast-member">
+                    <img src="khanin.jpg" alt="NuNew Chawarin">
+                    <div class="cast-name">NuNew Chawarin Perdpiriyawong<br>as Khanin Assavadevathin</div>
+                </div>
+                <div class="cast-member">
+                    <img src="ramil.jpg" alt="Jimmy">
+                    <div class="cast-name">Jimmy Karn Kritsanaphan<br>as Ramil Bhuchongphisut</div>
+                </div>
+                <div class="cast-member">
+                    <img src="Paytai.jpg" alt="Ohm">
+                    <div class="cast-name">Ohm Thanakrit Chiamchunya<br>as Paytai Ronawi</div>
+                </div>
+                <div class="cast-member">
+                    <img src="calvin.jpg" alt="Net">
+                    <div class="cast-name">Net Siraphop Manithikhun<br>as Calvin</div>
+                </div>
+                <div class="cast-member">
+                    <img src="jay.jpg" alt="JJ">
+                    <div class="cast-name">JJ Radchapon Phornpinit<br>as Jay</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-section">
+            <h2>Why does Ivjiro recommend this series?</h2>
+            <h4>Disclaimer: This section is reviewed by Ivjiro and may contain spoilers and personal opinions about the series.</h4>
+            <p>The Next Prince is a unique and compelling series that, while fictional, thoughtfully addresses real-life issues and situations. Set in the fictional kingdom of Emmaly—a land divided into four clans, each facing its own challenges—the story explores a wide range of themes including political, environmental, gender-related, physical, and psychological issues. One of the most striking aspects of the series is its high production quality. With skillful acting, beautiful cinematography, and meticulous attention to detail, the show immediately captures viewers’ attention. Despite its distinctive royal setting, The Next Prince is a well-produced series that stands apart from typical romance dramas due to its originality and depth.</p>
+            
+            <p>The narrative centers on Charan (played by Zee), a reserved royal guard, and Khanin (played by NuNew), the reluctant crown prince. Beyond their slow-burning romance, the two uncover mysteries and seek the truth behind various conflicts—such as the reasons behind the attacks on Khanin, even while he is in London. Together, they confront pressing political and environmental issues affecting their kingdom. Their relationship is marked by contrast: Charan is emotionally reserved and keeps his feelings hidden, while Khanin is more open and patient, gradually learning to understand Charan. Their chemistry is a highlight of the series, adding to its unique charm and emotional depth. </p>
+            <p>The story also features other couples, each facing their own struggles. Ramil (played by Jimmy) and Paytai (played by Ohm) have a relationship shaped by physical and psychological challenges. Ramil suffers emotional manipulation from his father, while Paytai endures physical abuse linked to Ramil’s family. Another couple, Calvin (played by Net) and Jay (played by JJ), bring different perspectives. Calvin is an exchange student and undercover prince from Bhujar, attending Morpheus University of Arts, where he meets Jay, a passionate commoner and activist who uses protests to raise awareness for the suffering in their city. Their storyline highlights environmental and political issues that also engage the main characters. The protests become a catalyst for Khanin’s awakening and desire to enact change, contrasting sharply with his grandfather, the king, who is primarily concerned with maintaining power and the throne.</p>
+            <p>By weaving these diverse issues into its narrative, The Next Prince encourages viewers to be more open-minded and empathetic toward real-world problems. It offers more than just a romance—it provides insight into the complexities of governance, social justice, and personal identity, helping audiences understand how a country’s political and social dynamics unfold.</p>
+            <p>In summary, The Next Prince is a richly layered series that balances romance with meaningful social commentary, making it both an engaging and thought-provoking watch.  </p>
+         </div>
+    </main>
+</body>
+</html>

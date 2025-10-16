@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My School President - Ivjiro Series Recommendation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: #f7f7f2;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(40, 40, 40, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f7f7f2;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.9)), 
+                        url('MSP_CV.png') center center/cover no-repeat;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 50px;
+            z-index: 10;
+        }
+
+        .hero-text h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-text .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .details-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: fit-content;
+        }
+
+        .details-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #669bbc;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            min-width: 140px;
+            color: #669bbc;
+        }
+
+        .detail-value {
+            color: #f7f7f2;
+        }
+
+        .synopsis-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .synopsis-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #669bbc;
+        }
+
+        .synopsis-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #669bbc;
+            text-align: center;
+        }
+
+        .cast-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            margin-top: 30px;
+        }
+
+        .cast-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cast-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .cast-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #669bbc;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cast-member:hover img {
+            border-color: #669bbc;
+            box-shadow: 0 0 20px rgba(103, 220, 249, 0.5);
+        }
+
+        .cast-name {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .review-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .review-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #669bbc;
+        }
+
+        .review-section h4 {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            color: #669bbc;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .review-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            text-align: justify;
+            margin: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+
+            .cast-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .hero-section {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 1rem;
+            }
+
+            .cast-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cast-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .details-card, .synopsis-card, .cast-section, .review-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My School President (แฟนผมเป็นประธานนักเรียน)</h1>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>My School President</h2>
+                <p class="tagline">High school isn't just about grades, it's about heart</p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-grid">
+            <div class="details-card">
+                <h3>Series Details</h3>
+                <div class="detail-item">
+                    <span class="detail-label">Genre:</span>
+                    <span class="detail-value">BL, Romance, Comedy</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Country:</span>
+                    <span class="detail-value">Thailand</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Language:</span>
+                    <span class="detail-value">Thai</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Seasons:</span>
+                    <span class="detail-value">1</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Episodes:</span>
+                    <span class="detail-value">12</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Release Date:</span>
+                    <span class="detail-value">December 02, 2022</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Where to Watch:</span>
+                    <span class="detail-value">YouTube: GMMTV Official/span>
+                </div>
+            </div>
+
+            <div class="synopsis-card">
+                <h3>Synopsis</h3>
+                <p>My School President is a Thai drama about Gun, the passionate leader of his high school music club, and Tinn, the school president and son of the principal who plans to shut down “useless” clubs—including Gun’s. Secretly harboring a crush on Gun, Tinn must balance his duties with his feelings, vowing to help Gun’s band win the Hot Wave Music Contest so they can keep their club alive. The series blends romance, comedy, and music, showcasing a sweet slow-burn relationship amid school politics and youthful dreams</p>
+            </div>
+        </div>
+
+        <div class="cast-section">
+            <h3 class="section-title"> Main Cast</h3>
+            <div class="cast-grid">
+                <div class="cast-member">
+                    <img src="tinn.jpg" alt="Gemini">
+                    <div class="cast-name">Gemini Norawit Titicharoenrak <br>as Tinn Tinnaphob Jirawatthanakul</div>
+                </div>
+                <div class="cast-member">
+                    <img src="gun.jpg" alt="Fourth">
+                    <div class="cast-name">Fourth Nattawat Jirochtikul<br>as Gun Gunthapon Wongwitthaya</div>
+                </div>
+                <div class="cast-member">
+                    <img src="win.jpg" alt="Winny">
+                    <div class="cast-name">Winny Thanawin Pholcharoenrat<br>as Win</div>
+                </div>
+                <div class="cast-member">
+                    <img src="sound.jpg" alt="Satang">
+                    <div class="cast-name">Satang Kittiphop Sereevichayasawat<br>as Sound</div>
+                </div>
+                <div class="cast-member">
+                     <img src="tiw.jpg" alt="Mark">
+                    <div class="cast-name">Mark Pakin Kuna-anuwit<br>as Tiw</div>
+                </div>
+                <div class="cast-member">
+                    <img src="por.jpg" alt="Ford">
+                    <div class="cast-name">Ford Allan Asawasuebsakul<br>as Por</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-section">
+            <h2>Why does Ivjiro recommend this series?</h2>
+            <h4>Disclaimer: This section is reviewed by Ivjiro and may contain spoilers and personal opinions about the series.</h4>
+            <p>My School President is one of the most heartwarming Thai BL series, centered on high school students Gun (played by Fourth), the passionate leader of the music club, and Tinn (played by Gemini), the responsible school president. Their story captures the quintessential high school romance many viewers long for, beautifully portraying a relationship that grows through mutual understanding and maturity.</p>
+            <p>What truly captivates audiences is Tinn’s unwavering dedication and love for Gun, which unfolds gradually after years of admiration from afar. Their slow-building romance faces challenges, but the way they navigate these obstacles with honesty and growth adds depth to the story. Beyond romance, the series thoughtfully addresses themes like school politics, identity struggles, and relationship dynamics, grounding its lighthearted tone with relatable, realistic elements.</p>
+            <p>The supporting cast, especially the music club members, exemplify true friendship—standing by each other through ups and downs, resolving conflicts, and strengthening their bonds. Given the series’ musical focus, the soundtrack shines, highlighting both the story’s emotional beats and the actors’ talents, making the viewing experience even more enjoyable.</p>
+            <p>While the plot may not delve into complex twists, My School President offers comfort and entertainment, perfect for those seeking a feel-good, nostalgic glimpse into high school life and young love.</p>
+            <p>Overall, My School President is a lovable and entertaining series that resonates with viewers, evoking the bittersweet charm of youth and the excitement of first love.</p>
+        </div>
+    </main>
+</body>
+</html>

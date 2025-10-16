@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutie Pie - Ivjiro Series Recommendation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: #f7f7f2;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(40, 40, 40, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f7f7f2;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.9)), 
+                        url('CP_cover.png') center center/cover no-repeat;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5% 50px;
+            z-index: 10;
+        }
+
+        .hero-text h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-text .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .details-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: fit-content;
+        }
+
+        .details-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #d7171e;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            min-width: 140px;
+            color: #d7171e;
+        }
+
+        .detail-value {
+            color: #f7f7f2;
+        }
+
+        .synopsis-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .synopsis-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #d7171e;
+        }
+
+        .synopsis-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #d7171e;
+            text-align: center;
+        }
+
+        .cast-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            margin-top: 30px;
+        }
+
+        .cast-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cast-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .cast-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #d7171e;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cast-member:hover img {
+            border-color: #d7171e;
+            box-shadow: 0 0 20px rgba(245, 98, 98, 0.5);
+        }
+
+        .cast-name {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .review-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #242424 100%);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .review-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #d7171e;
+        }
+
+        .review-section h4 {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            color: #d7171e;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .review-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            text-align: justify;
+            margin: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+
+            .cast-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .hero-section {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 1rem;
+            }
+
+            .cast-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cast-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .details-card, .synopsis-card, .cast-section, .review-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cutie Pie (นิ่งเฮียก็หาว่าซื่อ)</h1>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>Cutie Pie</h2>
+                <p class="tagline">A journey from arranged marriage to true love</p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="content-grid">
+            <div class="details-card">
+                <h3>Series Details</h3>
+                <div class="detail-item">
+                    <span class="detail-label">Genre:</span>
+                    <span class="detail-value">BL, Romance, Comedy</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Country:</span>
+                    <span class="detail-value">Thailand</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Language:</span>
+                    <span class="detail-value">Thai</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Seasons:</span>
+                    <span class="detail-value">2</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Episodes:</span>
+                    <span class="detail-value">12 (Season 1), 4 (Season 2)</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Release Date:</span>
+                    <span class="detail-value">Season 1: Feb 23, 2022<br>Season 2: Mar 29, 2023</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Where to Watch:</span>
+                    <span class="detail-value">YouTube: Mandee Channel, iQIYI</span>
+                </div>
+            </div>
+
+            <div class="synopsis-card">
+                <h3>Synopsis</h3>
+                <p>"Cutie Pie" is a Thai BL romance series about Lian Kilen Wang, a serious businessman, and Kuea "Kirin" Keerati, a free-spirited university student and musician, who are engaged through an arranged childhood promise. Initially distant and uncertain about their feelings, Kuea tries to break off the engagement, but Lian invites him to live together, leading them to confront their true emotions. In the second season, as they plan their wedding, they face challenges like Kuea's idol debut and family expectations. The series explores themes of love, marriage equality, and personal authenticity, highlighting the growth of their relationship from obligation to genuine affection.</p>
+            </div>
+        </div>
+
+        <div class="cast-section">
+            <h3 class="section-title"> Main Cast</h3>
+            <div class="cast-grid">
+                <div class="cast-member">
+                    <img src="lian.jfif" alt="Zee Pruk Panich">
+                    <div class="cast-name">Zee Pruk Panich<br>as Lian Kilen Wang</div>
+                </div>
+                <div class="cast-member">
+                    <img src="kuea.jfif" alt="NuNew Chawarin">
+                    <div class="cast-name">NuNew Chawarin Perdpiriyawong<br>as Kuea "Kirin" Keerati</div>
+                </div>
+                <div class="cast-member">
+                    <img src="yi.jfif" alt="Max Kornthas">
+                    <div class="cast-name">Max Kornthas Rujeerattanavorapan<br>as "Yi" Phayak Chatdecha Chen</div>
+                </div>
+                <div class="cast-member">
+                    <img src="diao.jfif" alt="Nat Natasit">
+                    <div class="cast-name">Nat Natasit Uareksit<br>as "Khondiao" Thacha Wongtheerawit</div>
+                </div>
+                <div class="cast-member">
+                    <img src="nuer.jfif" alt="Tutor Koraphat">
+                    <div class="cast-name">Tutor Koraphat Lamnoi<br>as Nuer</div>
+                </div>
+                <div class="cast-member">
+                    <img src="syn.jfif" alt="Yim Pharinyakorn">
+                    <div class="cast-name">Yim Pharinyakorn Khansawa<br>as Syn</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-section">
+            <h2>Why does Ivjiro recommend this series?</h2>
+            <h4>Disclaimer: This section is reviewed by Ivjiro and may contain spoilers and personal opinions about the series.</h4>
+            <p>Cutie Pie is a series that thoughtfully explores themes of love and marriage within the LGBTQ+ community, emphasizing the importance of being true to oneself, as well as the crucial roles of communication, trust, and effort in sustaining a healthy relationship. The story revolves around Lian (played by Zee) and Kuea (played by NuNew), who have been bound by an arranged marriage since childhood due to their families' wishes. While Kuea openly expresses his affection, Lian remains distant and focused on his work, which ultimately leads Kuea to call off their engagement, highlighting Lian's lack of emotional investment.</p>
+            
+            <p>A significant aspect of the series is how Kuea hides his true self from Lian, concealing his passion for singing and even his university major. This secrecy underscores the difficulty of being authentic both to oneself and to others. The couple's failure to communicate openly creates a gap of mistrust and misunderstanding, illustrating that love alone is not enough to sustain a relationship. In episode 11, Kuea rejects Lian's proposal because he feels suffocated by the inability to be genuine, despite Lian's awareness of this struggle. This moment powerfully conveys that acceptance begins with self-acceptance, especially in a lifelong commitment like marriage.</p>
+            
+            <p>Beyond romance, Cutie Pie also beautifully highlights the value of friendship. The bond between Kuea and his friend Kondiao exemplifies true friendship—one built on comfort, honesty, and unwavering support. Similarly, Lian and Yi's relationship shows mutual understanding and encouragement, reinforcing that strong friendships can provide essential emotional support alongside romantic love.</p>
+            
+            <p>The second season, Cutie Pie 2 You, showcases the growth and maturity of Lian and Kuea's relationship. Unlike the first season, where secrets and misunderstandings prevailed, the couple now communicates openly and makes a conscious effort to understand each other. This progression reflects a more balanced and healthy partnership, demonstrating how effort and honesty can transform a relationship.</p>
+            
+            <p>Overall, Cutie Pie is both entertaining and meaningful, offering viewers valuable lessons about love, authenticity, and communication. It encourages people to embrace their true selves and to foster open, supportive relationships. This series is especially rewarding for those learning not only to love others but also to love themselves.</p>
+        </div>
+    </main>
+</body>
+</html>
